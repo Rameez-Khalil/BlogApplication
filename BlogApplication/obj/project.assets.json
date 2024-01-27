@@ -4015,19 +4015,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DANISH LAPTOP\\.nuget\\packages\\": {}
+    "C:\\Users\\DELL\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\backend-learning\\BlogApplication\\BlogApplication\\BlogApplication.csproj",
+      "projectUniqueName": "E:\\backend-learning\\DotNet Projects\\BlogApplication\\BlogApplication\\BlogApplication.csproj",
       "projectName": "BlogApplication",
-      "projectPath": "D:\\backend-learning\\BlogApplication\\BlogApplication\\BlogApplication.csproj",
-      "packagesPath": "C:\\Users\\DANISH LAPTOP\\.nuget\\packages\\",
-      "outputPath": "D:\\backend-learning\\BlogApplication\\BlogApplication\\obj\\",
+      "projectPath": "E:\\backend-learning\\DotNet Projects\\BlogApplication\\BlogApplication\\BlogApplication.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "E:\\backend-learning\\DotNet Projects\\BlogApplication\\BlogApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DANISH LAPTOP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4083,7 +4083,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
