@@ -23,12 +23,14 @@ namespace BlogApplication.Controllers
         //We need to provide a form so user can fill it and 
         //our controller can use the data and inject it into our database.
 
+        //Get the view named Add.
         [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
 
+        //Store the data.
         [HttpPost]
         [ActionName("Add")]
         public IActionResult Add(AddTagRequest addTagRequest)
@@ -44,7 +46,17 @@ namespace BlogApplication.Controllers
             
             //Saving the changes
             bloggieDbContext.SaveChanges();
-            return View("Add");
+            return RedirectToAction("List");
+        }
+
+        //Read all the data.
+        [HttpGet]
+        [ActionName("List")]
+        public IActionResult List()
+        {
+            //DB context.
+            var tags = bloggieDbContext.Tags.ToList(); 
+            return View(tags); 
         }
 
 
