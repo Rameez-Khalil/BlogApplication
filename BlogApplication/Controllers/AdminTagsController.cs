@@ -11,7 +11,7 @@ namespace BlogApplication.Controllers
     public class AdminTagsController : Controller
     {
         //privatae field so we can use it.
-        private BloggieDbContext bloggieDbContext; 
+        private BloggieDbContext bloggieDbContext;
 
         //Constructor Injection.
         //BloggieDB will be injected as a parameter.
@@ -42,8 +42,8 @@ namespace BlogApplication.Controllers
                 Name = addTagRequest.Name,
                 DisplayName = addTagRequest.DisplayName
             };
-            bloggieDbContext.Tags.Add(tag); 
-            
+            bloggieDbContext.Tags.Add(tag);
+
             //Saving the changes
             bloggieDbContext.SaveChanges();
             return RedirectToAction("List");
@@ -55,9 +55,59 @@ namespace BlogApplication.Controllers
         public IActionResult List()
         {
             //DB context.
-            var tags = bloggieDbContext.Tags.ToList(); 
-            return View(tags); 
+            var tags = bloggieDbContext.Tags.ToList();
+            return View(tags);
         }
+
+        [HttpGet]
+        public IActionResult Edit(Guid id)
+        {
+            var tag = bloggieDbContext.Tags.FirstOrDefault(x => x.Id == id);
+            if (tag != null)
+            {
+                var editTagRequest = new EditTagRequest
+                {
+                    Id = tag.Id,
+                    Name = tag.Name,
+                    DisplayName = tag.DisplayName
+                };
+                return View(editTagRequest);
+            }
+            //In case when there was no tag located.
+            return View(null);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditTagRequest editTagRequest)
+        {
+            //create a new tag element based off of the domain model.
+            var tag = new Tag
+            {
+                Name = editTagRequest.Name,
+                DisplayName = editTagRequest.DisplayName,
+                Id = editTagRequest.Id
+            };
+
+
+            var existingTag = bloggieDbContext.Tags.Find(tag.Id);
+            if (existingTag != null)
+            {
+                existingTag.Name = tag.Name;
+                existingTag.DisplayName = tag.DisplayName;
+
+                //Save the changes.
+                bloggieDbContext.SaveChanges();
+
+                //Show success notification.
+                return RedirectToAction("Edit", new { id = editTagRequest.Id });
+            }
+
+            //If for some reason we were not able to handle the user request properly.
+            //Show failure notification.
+            return RedirectToAction("Edit", new { id = editTagRequest.Id });
+
+        }
+
 
 
     }
