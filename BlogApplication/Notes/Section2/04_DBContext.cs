@@ -4,6 +4,8 @@
  *      We tell EF what tables to create in what fashion.
  *      We also define relationship between tables.
  *      
+ *      DbContext tries to achieve Unit Of Work (Data Consistency) and Repository Pattern (Separation Of Data Access logic and mapping those entities to the business logic).
+ *      
  *      
  *      CREATING DB CLASS: 
  *          Create a data folder.

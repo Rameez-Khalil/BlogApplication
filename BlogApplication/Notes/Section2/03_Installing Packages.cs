@@ -1,1 +1,5 @@
-﻿
+﻿/*
+ * EntityFrameworkCore.SqlServer
+ * EntityFrameworkCore.Tools.
+ * 
+ */
