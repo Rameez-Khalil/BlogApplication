@@ -8,27 +8,37 @@
 
 
 <div class="container py-5">
-    <form method="post">
-        <!--Form fields-->
-        <div class="mb-3">
-            <label class="form-label">Id</label>
-            <input type="text" id="id" class="form-control" asp-for="Id" readonly />
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Name</label>
-            <input type="text" id="name" class="form-control" asp-for="Name" />
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Display Name</label>
-            <input type="text" id="displayName" class="form-control" asp-for="DisplayName" />
-        </div>
 
-        <div class="mb-3">
-            <div class="d-flex">
-                <button class="btn btn-dark" type="submit">Update</button>
-                <button class="btn btn-danger" type="submit" asp-area="" asp-action="Delete" asp-controller="AdminTags">Delete</button>
+    @if (Model != null)
+    {
+        <form method="post">
+            <!--Form fields-->
+            <div class="mb-3">
+                <label class="form-label">Id</label>
+                <input type="text" id="id" class="form-control" asp-for="Id" readonly />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" id="name" class="form-control" asp-for="Name" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Display Name</label>
+                <input type="text" id="displayName" class="form-control" asp-for="DisplayName" />
             </div>
 
-        </div>
-    </form>
+            <div class="mb-3">
+                <div class="d-flex">
+                    <button class="btn btn-dark" type="submit">Update</button>
+                    <button class="btn btn-danger" type="submit" asp-area="" asp-action="Delete" asp-controller="AdminTags">Delete</button>
+                </div>
+
+            </div>
+        </form>
+
+    }
+    else
+    {
+        <p>Tag not found</p>
+    }
+
 </div>
